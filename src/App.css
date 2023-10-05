@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+ .button{
+  background: black;
+  color: white;
+  border: blue;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+};
+
+.select-drop-down{
+  padding: 15px;
+  border-radius: 10px;
+}

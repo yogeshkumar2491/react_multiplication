@@ -1,23 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useMemo } from "react";
+import "./App.css";
 
 function App() {
+  const [value, setValue] = useState(1),
+    [multiplyValue, setMultiplyValue] = useState(1),
+    multipliedValue = value * multiplyValue,
+    multiplierArray = useMemo(
+      () => Array.from({ length: 100 }, (v, k) => k + 1),
+      []
+    );
+
+  const style = {
+    padding: "15px",
+    "border-radius": "10px",
+    background: "rosybrown",
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <button onClick={() => setValue(value + 1)} className="button">
+            Click to multiply by multiplier - {multiplyValue}
+          </button>
+          <span style={{ padding: "10px" }}>
+            <select
+              style={style}
+              onChange={(e): void => setMultiplyValue(parseInt(e.target.value))}
+            >
+              {multiplierArray.map((element) => (
+                <option>{element}</option>
+              ))}
+            </select>
+          </span>
+        </div>
+
+        <div>
+          <h1>Multiplicand: {value}</h1>
+        </div>
+        <span style={{ padding: "15px" }}>Product: {multipliedValue}</span>
       </header>
     </div>
   );

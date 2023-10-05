@@ -20,7 +20,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          <button onClick={() => setValue(value + 1)} className="button">
+          <button
+            onClick={() => setValue(value + 1)}
+            className="multilpy-button"
+          >
             Click to multiply by multiplier - {multiplyValue}
           </button>
           <span style={{ padding: "10px" }}>

@@ -16,6 +16,11 @@ function App() {
     background: "rosybrown",
   };
 
+  const styleBtn = {
+    padding: "15px",
+    "border-radius": "10px",
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,6 +28,7 @@ function App() {
           <button
             onClick={() => setValue(value + 1)}
             className="multilpy-button"
+            style={styleBtn}
           >
             Click to multiply by multiplier - {multiplyValue}
           </button>
